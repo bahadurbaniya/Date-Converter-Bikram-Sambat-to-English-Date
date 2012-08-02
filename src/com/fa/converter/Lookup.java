@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * <code>Lookup<code> is a simple  class which has mapping from Bikram Sambat to Gregorian date  
  * Current mapping is in range of 1970-2100
  * If you need extension in date range,
- * add more referring <a href='http://www.ashesh.com.np/nepali-calendar/?year=2100&month=Jestha&hidden=hidden&submit=Submit'>Bikram Sambat Calendar.
+ * add more referring <a href='http://www.ashesh.com.np/nepali-calendar/?'>Bikram Sambat Calendar.
  * Which has 1970-2100 bikram sambat date range
- * 
+ * @todo it would be better if these lookup tables could be maintained in xml file
  * There are certain year where there is not 365 days per year, verify these year with other calendar
  * 
  * @author bahadur baniya
