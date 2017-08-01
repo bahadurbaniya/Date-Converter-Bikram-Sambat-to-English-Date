@@ -106,6 +106,11 @@ public class DateConverter {
     			start=df1.parse(lookup.get(i)[0]);
     			monthDay=monthDays.get(i);
         		equBs+=i;
+        		if(start.getTime()>=current.getTime())
+        		{
+        			start=df1.parse(lookup.get(i-1)[0]);
+        			equBs-=1;
+        		}
     		}
     	}
     	Calendar adStart=new GregorianCalendar(start.getYear(),start.getMonth(),start.getDate());
@@ -114,6 +119,7 @@ public class DateConverter {
     	int nepYear=(int) equBs,nepMonth=0,nepDay=1,DaysInMonth;
     	while(difference!=0)
     	{
+    		if(difference>=0) {
     		DaysInMonth=monthDay[nepMonth];
     		nepDay++;
     		if(nepDay>DaysInMonth)
@@ -121,12 +127,14 @@ public class DateConverter {
     			nepMonth++;
     			nepDay=1;
     		}
-    		 if (nepMonth > 12) {
+    		 if (nepMonth >= 12) {
     	            nepYear++;
-    	            nepMonth = 1;
+    	            nepMonth = 0;
     	      }
     		difference--;
     	}
+    	}
+    	
     	nepMonth+=1;
 		System.out.println(nepYear+"  "+nepMonth+"  "+nepDay);
 
