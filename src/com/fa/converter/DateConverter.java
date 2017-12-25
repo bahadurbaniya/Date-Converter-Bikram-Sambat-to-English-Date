@@ -9,11 +9,16 @@ import static com.fa.converter.Lookup.lookup;
 import static com.fa.converter.Lookup.lookupNepaliYearStart;
 import static com.fa.converter.Lookup.monthDays;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.regex.Pattern;
 
+import org.joda.time.Days;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,29 +63,80 @@ public class DateConverter {
      * @return
      */
     public Date convertBsToAd(String bsDate) {
-	int bsYear = 0, bsMonth = 0, bsDayOfMonth = 0;
+    	int bsYear = 0, bsMonth = 0, bsDayOfMonth = 0;
 
-	if (separator == null) {
-	    if (!matchFormat(bsDate)) {
-		throw new InvalidDateFormat("incorrect date format  " + format
-			+ " date provided was " + bsDate);
-	    }
-	    bsDayOfMonth = Integer.parseInt(bsDate.substring(0, 2));
-	    bsMonth = Integer.parseInt(bsDate.substring(2, 4));
-	    bsYear = Integer.parseInt(bsDate.substring(4));
-	} else {
-	    String[] bsDates = bsDate.split(separator);
-	    bsYear = Integer.parseInt(bsDates[0]);
-	    bsMonth = Integer.parseInt(bsDates[1]);
-	    bsDayOfMonth = Integer.parseInt(bsDates[2]);
-	}
+    	if (separator == null) {
+    	    if (!matchFormat(bsDate)) {
+    		throw new InvalidDateFormat("incorrect date format  " + format
+    			+ " date provided was " + bsDate);
+    	    }
+    	    bsDayOfMonth = Integer.parseInt(bsDate.substring(0, 2));
+    	    bsMonth = Integer.parseInt(bsDate.substring(2, 4));
+    	    bsYear = Integer.parseInt(bsDate.substring(4));
+    	} else {
+    	    String[] bsDates = bsDate.split(separator);
+    	    bsYear = Integer.parseInt(bsDates[0]);
+    	    bsMonth = Integer.parseInt(bsDates[1]);
+    	    bsDayOfMonth = Integer.parseInt(bsDates[2]);
+    	}
 
-	int lookupIndex = getLookupIndex(bsYear);
-	if (validateBsDate(bsYear, bsMonth, bsDayOfMonth)) {
-	    return convertBsToAd(bsDate, bsMonth, bsDayOfMonth, lookupIndex);
-	} else {
-	    throw new IllegalStateException("invalid BS date");
-	}
+    	int lookupIndex = getLookupIndex(bsYear);
+    	if (validateBsDate(bsYear, bsMonth, bsDayOfMonth)) {
+    	    return convertBsToAd(bsDate, bsMonth, bsDayOfMonth, lookupIndex);
+    	} else {
+    	    throw new IllegalStateException("invalid BS date");
+    	}
+
+        }
+    public void convertAdToBs(String adDate) throws ParseException {
+    	String getCurrentYear[]=adDate.split("-");
+    	DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+    	Date current=df.parse(adDate);
+    	Calendar adCurrent=new GregorianCalendar(current.getYear(),current.getMonth(),current.getDate());
+    	Date start = null;
+    	long equBs = lookupNepaliYearStart;
+    	Integer monthDay[] = null;
+    	int count=0;
+    	for(int i=0;i<lookup.size();i++)
+    	{
+    		String getStartYear[]=lookup.get(i)[0].split("-");
+    		if(getStartYear[2].equals(getCurrentYear[2]))
+    		{
+    			DateFormat df1=new SimpleDateFormat("dd-MMM-yyyy");
+    			start=df1.parse(lookup.get(i)[0]);
+    			monthDay=monthDays.get(i);
+        		equBs+=i;
+        		if(start.getTime()>=current.getTime())
+        		{
+        			start=df1.parse(lookup.get(i-1)[0]);
+        			equBs-=1;
+        		}
+    		}
+    	}
+    	Calendar adStart=new GregorianCalendar(start.getYear(),start.getMonth(),start.getDate());
+    	long diff=adCurrent.getTime().getTime()-adStart.getTime().getTime();
+    	long difference = diff / (1000 * 60 * 60 * 24);
+    	int nepYear=(int) equBs,nepMonth=0,nepDay=1,DaysInMonth;
+    	while(difference!=0)
+    	{
+    		if(difference>=0) {
+    		DaysInMonth=monthDay[nepMonth];
+    		nepDay++;
+    		if(nepDay>DaysInMonth)
+    		{
+    			nepMonth++;
+    			nepDay=1;
+    		}
+    		 if (nepMonth >= 12) {
+    	            nepYear++;
+    	            nepMonth = 0;
+    	      }
+    		difference--;
+    	}
+    	}
+    	
+    	nepMonth+=1;
+		System.out.println(nepYear+"  "+nepMonth+"  "+nepDay);
 
     }
 
@@ -176,7 +232,7 @@ public class DateConverter {
 	logger.debug("lookup index " + (bsYear - lookupNepaliYearStart));
 	return bsYear - lookupNepaliYearStart;
     }
-
+    
     /**
      * confirms whether date format is valid or not. date format should be
      * mm-dd-yyyy
