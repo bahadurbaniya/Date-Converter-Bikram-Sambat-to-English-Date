@@ -1,3 +1,4 @@
+# Overview
 Module to convert any nepali calendar date (Bikram Sambat) provided to English equivalent date (AD).
 
 
@@ -21,3 +22,28 @@ Steps involved in BS to AD conversion:
 About Bikram Sambat: 
 * http://en.wikipedia.org/wiki/Bikram_Samwat#Conversion
 * http://en.wikipedia.org/wiki/Nepali_calendar
+
+# Technical 
+This is Maven project. Import project in your favourite IDE using pom.xml. 
+
+# Run instructions 
+    
+Generate JAR
+    
+    mvn clean package  
+    
+Run only test 
+    
+    mvn test 
+     
+Execute class 
+    
+    java -jar target/NepaliDateConverter-1.0-SNAPSHOT.jar 
+or 
+   
+    mvn exec:java -Dexec.mainClass=np.com.converter.date.nepali.DateConverterTestBed
+    
+# Usage instructions 
+    mvn clean package 
+
+Use generated jar in target folder as dependency  
