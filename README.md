@@ -26,6 +26,20 @@ About Bikram Sambat:
 # Technical 
 This is Maven project. Import project in your favourite IDE using pom.xml. 
 
+# Use 
+## AD to BS conversion sample
+        DateConverter dc = new DateConverter();
+        System.out.println(dc.convertAdToBs("20-06-1982"));
+
+ ## BS to AD conversion sample
+        DateConverter dc = new DateConverter();
+        System.out.println(dc.convertBsToAd("06-03-2038"));
+        
+ ## Run Maven goal below for demo 
+        
+        mvn exec:java -Dexec.mainClass=np.com.converter.date.nepali.DateConverterTestBed
+
+
 # Run instructions 
     
 Generate JAR

@@ -44,8 +44,6 @@ public class DateConverterTest {
 
     @Test
     public void testAdToBs() throws ParseException{
-
-
         assertEquals("2039-3-6", dc.convertAdToBs("20-06-1982"));
 
 
@@ -54,12 +52,6 @@ public class DateConverterTest {
 
 
         assertEquals("2041-1-28", dc.convertAdToBs("10-05-1984"));
-        //c.set(2001, 01, 13);
-        //assertEquals(c.getTime(), dc.convertBsToAd("02112057"));
-        // c.set(2011,6,13);
-        // assertEquals(c.getTime(), dc.convertBsToAd("29032068"));
-
-        // assertEquals(c, dc.convertBsToAd("06032039"));
     }
 
 

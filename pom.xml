@@ -51,8 +51,7 @@
                 <configuration>
                     <mainClass>np.com.converter.date.nepali.DateConverterTestBed</mainClass>
                     <arguments>
-                        <argument>foo</argument>
-                        <argument>bar</argument>
+                        <argument>06032039</argument>
                     </arguments>
                 </configuration>
             </plugin>
