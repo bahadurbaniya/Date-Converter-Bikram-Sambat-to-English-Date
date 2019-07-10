@@ -3,32 +3,38 @@
  *
  *
  */
-package np.com.converter.date.nepali;
+package np.com.bahadur.converter.date.nepali;
 
 import java.util.ArrayList;
 
 /**
- * <code>Lookup<code> is a simple  class which has mapping from Bikram Sambat to Gregorian date
+ *  This class has a mapping from Bikram Sambat to Gregorian date
  * Current mapping is in range of 1970-2100
  * If you need extension in date range,
  * add more referring <a href='http://www.ashesh.com.np/nepali-calendar/?'>Bikram Sambat Calendar.
  * Which has 1970-2100 bikram sambat date range
  *
  * @author bahadur baniya
- * @todo it would be better if these lookup tables could be maintained in XML or JSON. easy change and change immediate
+ * todo  it would be better if these lookup tables could be maintained in XML or JSON. easy change and change immediate
  * There are certain year where there is not 365 days per year, verify these year with other calendar.
  */
 public class Lookup {
     /*
      * lookup table starting year
      */
-    public static int lookupNepaliYearStart = 1970;
+    static int lookupNepaliYearStart = 1970;
     /**
      * Bikram Sambat new year equivalent Gregorian date
      */
-    public static ArrayList<String[]> lookup = new ArrayList<String[]>();
+    static ArrayList<String[]> lookup = new ArrayList<String[]>();
+    /*
+     * number of days in each month for subsequent years we need to extend this
+     * year adding more entries
+     */
+    static ArrayList<Integer[]> monthDays = new ArrayList<Integer[]>();
 
     static {
+        //todo create some csv or sort sort of external colaborative data other can update
         lookup.add(new String[]{"13-Apr-1913"});// 1970 Baisakh 1
         lookup.add(new String[]{"13-Apr-1914"});
         lookup.add(new String[]{"13-Apr-1915"});
@@ -161,13 +167,6 @@ public class Lookup {
         lookup.add(new String[]{"14-Apr-2042"});// 2099
         lookup.add(new String[]{"14-Apr-2043"});// 2100
     }
-
-    ;
-    /*
-     * number of days in each month for subsequent years we need to extend this
-     * year adding more entries
-     */
-    public static ArrayList<Integer[]> monthDays = new ArrayList<Integer[]>();
 
     static {
         monthDays.add(new Integer[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
@@ -434,5 +433,4 @@ public class Lookup {
                 30, 30});// 2100
     }
 
-    ;
 }

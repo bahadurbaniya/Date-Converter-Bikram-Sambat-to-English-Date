@@ -1,9 +1,7 @@
-package np.com.converter.date.nepali;
-/*
- * @(#)DateConverterTest.java	 09/11/2010
- *
- *
- */
+package np.com.bahadur.converter.date.nepali;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,12 +10,11 @@ import java.util.Scanner;
 
 
 /**
- * Class tests Bikram Sambat to gregorian date converter functionalities
- *
- * @author bahadur baniya
+ * Class tests Bikram Sambat to gregorian date converter functionality
+ * todo move it to tests instead of manual ones.
  */
 public class DateConverterTestBed {
-
+    private static Logger logger = LoggerFactory.getLogger(DateConverter.class);
 
     public static void main(String[] args) throws Exception {
         System.out.println("*******************************************************************************************");
@@ -56,10 +53,10 @@ public class DateConverterTestBed {
 
                     System.out.println(bsDate + " BS is conversion of  " + df.format(ad) + " AD");
                 } else {
-                    System.err.println("Incorrect Bikram Sambat date format.");
+                    logger.error("Incorrect Bikram Sambat date format.");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("error occurred", e);
             }
             System.out.print("Do you want to retry?  Y/N : ");
             String retry = s.next();

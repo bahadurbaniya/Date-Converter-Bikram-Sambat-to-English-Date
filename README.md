@@ -37,7 +37,7 @@ This is Maven project. Import project in your favourite IDE using pom.xml.
         
  ## Run Maven goal below for demo 
         
-        mvn exec:java -Dexec.mainClass=np.com.converter.date.nepali.DateConverterTestBed
+        mvn exec:java -Dexec.mainClass=DateConverterTestBed
 
 
 # Run instructions 
@@ -55,7 +55,7 @@ Execute class
     java -jar target/NepaliDateConverter-1.0-SNAPSHOT.jar 
 or 
    
-    mvn exec:java -Dexec.mainClass=np.com.converter.date.nepali.DateConverterTestBed
+    mvn exec:java -Dexec.mainClass=DateConverterTestBed
     
 # Usage instructions 
     mvn clean package 
