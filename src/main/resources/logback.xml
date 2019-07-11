@@ -9,12 +9,12 @@
     </appender>
 
 
-    <logger name="np.com" level="DEBUG" additivity="false">
+    <logger name="np.com" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 
 
-    <root level="TRACE">
+    <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

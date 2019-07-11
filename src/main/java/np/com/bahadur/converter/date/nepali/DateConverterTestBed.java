@@ -14,7 +14,7 @@ import java.util.Scanner;
  * todo move it to tests instead of manual ones.
  */
 public class DateConverterTestBed {
-    private static Logger logger = LoggerFactory.getLogger(DateConverter.class);
+    private static Logger logger = LoggerFactory.getLogger(DateConverterTestBed.class);
 
     public static void main(String[] args) throws Exception {
         System.out.println("*******************************************************************************************");
