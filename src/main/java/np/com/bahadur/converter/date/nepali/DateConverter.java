@@ -13,11 +13,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 
 /**
- * Class has functionlity to convert bikram sambat to Gregorian(AD) date
+ * Class has functionality to convert bikram sambat to Gregorian(AD) date
  *
  * @author bahadur baniya
  */
@@ -34,7 +33,7 @@ public class DateConverter {
     /**
      * @param format date format
      */
-    private DateConverter(String format) throws InvalidDateFormat {
+    private DateConverter(String format) {
         this(format, null);
     }
 
@@ -56,7 +55,9 @@ public class DateConverter {
      * @return english date
      */
     Date convertBsToAd(String bsDate) {
-        int bsYear, bsMonth, bsDayOfMonth;
+        int bsYear;
+        int bsMonth;
+        int bsDayOfMonth;
 
         if (separator == null) {
             if (!matchFormat(bsDate)) {
@@ -75,7 +76,7 @@ public class DateConverter {
 
         int lookupIndex = getLookupIndex(bsYear);
         if (validateBsDate(bsYear, bsMonth, bsDayOfMonth)) {
-            return convertBsToAd(bsDate, bsMonth, bsDayOfMonth, lookupIndex);
+            return convertBsToAd(bsMonth, bsDayOfMonth, lookupIndex);
         } else {
             throw new IllegalStateException("invalid BS date");
         }
@@ -87,14 +88,12 @@ public class DateConverter {
      *
      * @param adDate english date format string
      * @return Bikram Sambat date - String type dd-MM-yyyy. There would be 1 digit month and day of month.
-     *
      */
     String convertAdToBs(String adDate) throws ParseException {
         String[] getCurrentYear = adDate.split("-");
 
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Date current = df.parse(adDate);
-        Calendar adCurrent = new GregorianCalendar(current.getYear(), current.getMonth(), current.getDate());
         Date start = null;
         long equBs = Lookup.lookupNepaliYearStart;
         Integer[] monthDay = null;
@@ -111,15 +110,17 @@ public class DateConverter {
                 }
             }
         }
-        Calendar adStart = new GregorianCalendar(start.getYear(), start.getMonth(), start.getDate());
-        long diff = adCurrent.getTime().getTime() - adStart.getTime().getTime();
+        long diff = current.getTime() - start.getTime();
         long difference = diff / (1000 * 60 * 60 * 24);
-        int nepYear = (int) equBs, nepMonth = 0, nepDay = 1, DaysInMonth;
+        int nepYear = (int) equBs;
+        int nepMonth = 0;
+        int nepDay = 1;
+        int daysInMonth;
         while (difference != 0) {
             if (difference >= 0) {
-                DaysInMonth = monthDay[nepMonth];
+                daysInMonth = monthDay[nepMonth];
                 nepDay++;
-                if (nepDay > DaysInMonth) {
+                if (nepDay > daysInMonth) {
                     nepMonth++;
                     nepDay = 1;
                 }
@@ -139,19 +140,19 @@ public class DateConverter {
     /**
      * converts nepali bikram sambat date to Gregorian date
      *
-     * @param bsDate nepali full date
-     * @param bsMonth nepali date month
+     * @param bsMonth      nepali date month
      * @param bsDayOfMonth nepali date day of month
-     * @param lookupIndex
+     * @param lookupIndex  index to look number of days in month
      * @return english date
      */
-    private Date convertBsToAd(String bsDate, int bsMonth, int bsDayOfMonth,
+    private Date convertBsToAd(int bsMonth, int bsDayOfMonth,
                                int lookupIndex) {
-        int numberOfDaysPassed = bsDayOfMonth - 1;// number of days
+        // number of days
         // passed
         // since
         // start of year
         // 1 is decreased as year start day has already included
+        int numberOfDaysPassed = bsDayOfMonth - 1;
         for (int i = 0; i <= bsMonth - 2; i++) {
             numberOfDaysPassed += Lookup.monthDays.get(lookupIndex)[i];
         }
@@ -164,9 +165,9 @@ public class DateConverter {
         // corresponding english date
         // we need what starts
         // where...
-        String DATE_FORMAT = "dd-MMM-yyyy";
+        String dateFormat = "dd-MMM-yyyy";
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
-                DATE_FORMAT);
+                dateFormat);
         sdf.setLenient(false);
         Calendar c1 = Calendar.getInstance();
         try {
@@ -179,21 +180,19 @@ public class DateConverter {
     }
 
     /**
-     * validates nepali year
+     * validates nepali date
      *
-     * @param bsYear nepali date year part
-     * @param bsMonth nepali date month part
+     * @param bsYear       nepali date year part
+     * @param bsMonth      nepali date month part
      * @param bsDayOfMonth nepali date day of month
      * @return boolean returns false  if there is no lookup for provided year ,
      */
     private boolean validateBsDate(int bsYear, int bsMonth, int bsDayOfMonth) {
         if (bsYear < Lookup.lookupNepaliYearStart) {
-            throw new DateRangeNotSupported("");
+            throw new DateRangeNotSupported("Bikam Sambat is earlier than supported date");
         } else if (bsYear > (Lookup.lookupNepaliYearStart + Lookup.monthDays.size() - 1)) {
-            throw new DateRangeNotSupported("");
-        }
-        if (Lookup.lookupNepaliYearStart <= bsYear
-                && bsYear <= (Lookup.lookupNepaliYearStart + Lookup.monthDays.size() - 1)) {
+            throw new DateRangeNotSupported("Bikram Sambat is later than supported date");
+        } else {
             logger.debug("debug: converter supports  year {} ", bsYear);
             if (bsMonth >= 1 && bsMonth <= 12) {
                 logger.debug("debug: month between 1 and 12");
@@ -231,7 +230,7 @@ public class DateConverter {
      * @return true if format matches
      */
     boolean matchFormat(String bsDate) {
-        if (format.equals("ddMMyyyy")) {
+        if (format.equals(DEFAULT_FORMAT)) {
             logger.debug("date format want to test is {} real text is {}", format, bsDate);
             Pattern p = Pattern.compile("\\d{2}\\d{2}\\d{4}");
             return p.matcher(bsDate).matches();

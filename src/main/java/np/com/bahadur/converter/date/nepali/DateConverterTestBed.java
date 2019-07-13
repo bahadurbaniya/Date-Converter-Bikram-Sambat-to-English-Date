@@ -17,31 +17,34 @@ public class DateConverterTestBed {
     private static Logger logger = LoggerFactory.getLogger(DateConverterTestBed.class);
 
     public static void main(String[] args) throws Exception {
-        System.out.println("*******************************************************************************************");
-        System.out.println("BS to AD Converter supports "
-                + Lookup.lookupNepaliYearStart + "-"
-                + (Lookup.lookupNepaliYearStart + Lookup.monthDays.size() - 1));
-        System.out
-                .println("Further Nepali years can be added looking up online calendar. Add lookup in Lookup.java.");
-        System.out.println("One English equivalent date and ");
-        System.out
-                .println("number of days in each Nepali month for each Nepali Year is needed as a lookup.");
-        System.out.println("**************************************************************************************");
-        System.out.println("");
+        logger.info("*******************************************************************************************");
+        logger.info("BS to AD Converter supports {} - {} "
+                , Lookup.lookupNepaliYearStart,
+                (Lookup.lookupNepaliYearStart + Lookup.monthDays.size() - 1));
+        logger.info("Further Nepali years can be added looking up online calendar. Add lookup in Lookup.java.");
+        logger.info("One English equivalent date and ");
+        logger.info("number of days in each Nepali month for each Nepali Year is needed as a lookup.");
+        logger.info("**************************************************************************************");
+        logger.info("");
 
         // AD to BS conversion sample
         DateConverter dc = new DateConverter();
         String adDate = "20-06-1982";
-        System.out.printf("AD %s = BS %s \n",adDate, dc.convertAdToBs(adDate));
+        if (logger.isInfoEnabled())
+            logger.info("AD {} = BS {}", adDate, dc.convertAdToBs(adDate));
 
+        if (logger.isInfoEnabled()) {
+            adDate = "17-10-1981";
+            logger.info("AD {} = BS {}", adDate, dc.convertAdToBs(adDate));
+        }
         // BS to AD conversion sample
-        String bsDate =  "06032039";
-        System.out.printf("AD %s = BS %s \n",dc.convertBsToAd(bsDate),bsDate);
+        String bsDate = "06032039";
+        logger.info("AD {} = BS {} \n", dc.convertBsToAd(bsDate), bsDate);
 
 
         /// BS to AD conversion manual prompt
         while (true) {
-            System.out.print(String.format("Provide Bikram Sambat Input Date (%s) ? ", DateConverter.DEFAULT_FORMAT));
+            logger.info(String.format("Provide Bikram Sambat Input Date (%s) ? ", DateConverter.DEFAULT_FORMAT));
             Scanner s;
             Date ad;
             s = new Scanner(System.in);
@@ -50,8 +53,8 @@ public class DateConverterTestBed {
                 if (dc.matchFormat(bsDate)) {
                     ad = dc.convertBsToAd(bsDate);
                     DateFormat df = new SimpleDateFormat("MMM/dd/yyyy");
-
-                    System.out.println(bsDate + " BS is conversion of  " + df.format(ad) + " AD");
+                    if (logger.isInfoEnabled())
+                        logger.info(" {}  BS is conversion of {} AD ", bsDate, df.format(ad));
                 } else {
                     logger.error("Incorrect Bikram Sambat date format.");
                 }
