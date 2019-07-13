@@ -2,24 +2,13 @@
 # Project specific excludes
 #
 
-tomcat
 
 #
 # Default excludes
 #
 
 # Binaries
-*.7z
-*.dmg
-*.gz
-*.iso
 *.jar
-*.rar
-*.tar
-*.zip
-*.war
-*.ear
-*.sar
 *.class
 
 # Maven
@@ -46,11 +35,3 @@ nbactions.xml
 nb-configuration.xml
 
 
-# OS
-.DS_Store
-
-# Misc
-*.swp
-release.properties
-pom.xml.releaseBackup
-pom.xml.tag

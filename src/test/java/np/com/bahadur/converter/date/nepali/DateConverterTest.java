@@ -81,4 +81,18 @@ public class DateConverterTest {
 
         }
     }
+
+    /**
+     * test there is no bug  https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/issues/9
+     */
+
+    @Test
+    public void testAdToBsBug() throws ParseException {
+
+        // २०३८ कार्तिक १ - 1981 October 17
+        assertEquals("2038-7-1", dc.convertAdToBs("17-10-1981"));
+
+    }
+
+
 }

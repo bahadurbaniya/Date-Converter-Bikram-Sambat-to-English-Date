@@ -1,5 +1,5 @@
 # Overview
-Module to convert any nepali calendar date (Bikram Sambat) provided to English equivalent date (AD).
+Converts Nepali Date (Bikram Sambat (BS)) provided to English equivalent date (AD).
 
 
 Nepali Calendar does not have constant month days as English date has. It keeps on changing we can not create any algorithm and find what will be days for certain Nepali year and month. I hope some Panchang maker might come with infinite calendar years for Nepali Calendar. For now, we have to use lookup table when converting Nepali date to English date.
@@ -16,12 +16,11 @@ Following URLs can be helpful.
 
 Steps involved in BS to AD conversion: 
 1. If we need to convert 2001 Ashar 6, find number of days elapsed since start of Bikram Sambat year(2001 Baisakh 1).
-      1. Ashar is 3rd month(Baisakh,Jestha,Ashar) of BS as depicted in table. So number of days passed is 31+31+6-1 = 67(number of days in Baisakh+number of days in Jestha+month_of_day-1). Where month_of_day is day of month which needs conversion. 1 is subtracted as Baisakh 1 has already included.
+      1. Ashar is 3rd month(Baisakh, Jestha, Ashar) of BS as depicted in table. So number of days passed is 31+31+6-1 = 67(number of days in Baisakh+number of days in Jestha+month_of_day-1). Where month_of_day is day of month which needs conversion. 1 is subtracted as Baisakh 1 has already included.
       2. Add number of days elapsed to Gregorian equivalent date (13 April 1944) eg (13 April 1944)+67=19 June 1944. Which is correctly converted Gregorian date of 2001 Ashar 6.
 
 About Bikram Sambat: 
-* http://en.wikipedia.org/wiki/Bikram_Samwat#Conversion
-* http://en.wikipedia.org/wiki/Nepali_calendar
+* https://en.wikipedia.org/wiki/Bikram_Sambat
 
 # Technical 
 This is Maven project. Import project in your favourite IDE using pom.xml. 
@@ -37,7 +36,7 @@ This is Maven project. Import project in your favourite IDE using pom.xml.
         
  ## Run Maven goal below for demo 
         
-        mvn exec:java -Dexec.mainClass=DateConverterTestBed
+        mvn exec:java
 
 
 # Run instructions 
@@ -55,9 +54,9 @@ Execute class
     java -jar target/NepaliDateConverter-1.0-SNAPSHOT.jar 
 or 
    
-    mvn exec:java -Dexec.mainClass=DateConverterTestBed
+    mvn exec:java
     
 # Usage instructions 
-    mvn clean package 
-
-Use generated jar in target folder as dependency  
+    mvn clean install 
+ 
+Use installed jar in .m2 folder as  a dependency  

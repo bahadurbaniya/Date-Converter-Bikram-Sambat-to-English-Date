@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Which has 1970-2100 bikram sambat date range
  *
  * @author bahadur baniya
- * todo  it would be better if these lookup tables could be maintained in XML or JSON. easy change and change immediate
+ * todo  it would be better if these lookup tables could be maintained in XML or JSON or in memory database.
  * There are certain year where there is not 365 days per year, verify these year with other calendar.
  */
 public class Lookup {

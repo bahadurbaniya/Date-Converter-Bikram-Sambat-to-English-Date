@@ -83,14 +83,14 @@ public class DateConverter {
     }
 
     /**
-     * converts Gregorian date to Bikram Sambat date
+     * Converts Gregorian date to Bikram Sambat date
      *
      * @param adDate english date format string
-     * @return Bikram Sambat date - String type
+     * @return Bikram Sambat date - String type dd-MM-yyyy. There would be 1 digit month and day of month.
+     *
      */
     String convertAdToBs(String adDate) throws ParseException {
         String[] getCurrentYear = adDate.split("-");
-        Calendar cal = Calendar.getInstance();
 
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Date current = df.parse(adDate);

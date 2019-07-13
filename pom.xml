@@ -8,6 +8,7 @@
     <groupId>np.com.bahadur.converter.date.nepali</groupId>
     <artifactId>NepaliEnglishDateConverter</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <url>https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
