@@ -1,17 +1,16 @@
 package np.com.bahadur.converter.date.nepali;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.util.Calendar;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Bahadur Baniya
+ *
  */
 public class DateConverterTest {
     private static Logger logger = LoggerFactory.getLogger(DateConverterTest.class);
@@ -32,10 +31,9 @@ public class DateConverterTest {
 
         c.set(2001, Calendar.FEBRUARY, 13);
         assertEquals(c.getTime(), dc.convertBsToAd("02112057"));
-        // c.set(2011,6,13);
-        // assertEquals(c.getTime(), dc.convertBsToAd("29032068"));
 
-        // assertEquals(c, dc.convertBsToAd("06032039"));
+        c.set(2011, Calendar.JULY, 13);
+        assertEquals(c.getTime(), dc.convertBsToAd("29032068"));
     }
 
     @Test
@@ -48,24 +46,24 @@ public class DateConverterTest {
     }
 
 
-    @Test(expected = InvalidDateFormat.class)
+    @Test
     public void incorrectDateFormat() {
-        dc.convertBsToAd("290320104");
+        assertThrows(InvalidDateFormat.class, () -> dc.convertBsToAd("290320104"));
     }
 
-    @Test(expected = DateRangeNotSupported.class)
-    public void testCustomerDied() {
-        dc.convertBsToAd("29031000");
+    @Test
+    public void testDateNotSupported() {
+        assertThrows(DateRangeNotSupported.class, () -> dc.convertBsToAd("29031000"));
     }
 
-    @Test(expected = DateRangeNotSupported.class)
+    @Test
     public void testDateRangeNotSupported() {
-        dc.convertBsToAd("29032200");
+        assertThrows(DateRangeNotSupported.class, () -> dc.convertBsToAd("29032200"));
     }
 
     /**
      * test number of days in nepali year should be 365.
-     * Some year has 364 -367 days.
+     * Some nepalese calendar year has 364 -367 days.
      */
     @Test
     public void testValidNumberOfDaysInYear() {
@@ -77,21 +75,18 @@ public class DateConverterTest {
                 numberOfDaysInYear += day;
             }
             logger.debug("total days {}", numberOfDaysInYear);
-            assertTrue("was not equal. number of days in one of the year " + numberOfDaysInYear, numberOfDaysInYear >= 364 && numberOfDaysInYear <= 367);
-
+            // interesting thing: number of days  nepalese calendar year can have days between 364 to 367 days.
+            assertTrue(numberOfDaysInYear >= 364 && numberOfDaysInYear <= 367);
         }
     }
 
     /**
      * test there is no bug  https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/issues/9
      */
-
     @Test
     public void testAdToBsBug() throws ParseException {
-
         // २०३८ कार्तिक १ - 1981 October 17
         assertEquals("2038-7-1", dc.convertAdToBs("17-10-1981"));
-
     }
 
 
