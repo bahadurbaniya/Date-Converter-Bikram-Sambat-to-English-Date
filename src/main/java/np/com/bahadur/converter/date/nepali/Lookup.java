@@ -8,33 +8,37 @@ package np.com.bahadur.converter.date.nepali;
 import java.util.ArrayList;
 
 /**
- *  This class has a mapping from Bikram Sambat to Gregorian date
+ * This class has a mapping from Bikram Sambat to Gregorian date
  * Current mapping is in range of 1970-2100
  * If you need extension in date range,
- * add more referring <a href='http://www.ashesh.com.np/nepali-calendar/?'>Bikram Sambat Calendar.
- * Which has 1970-2100 bikram sambat date range
- *
- * @author bahadur baniya
+ * add more  dates referring to sites mentioned in README.md.
+ * <p>
  * todo  it would be better if these lookup tables could be maintained in XML or JSON or in memory database.
+ * </p>
+ * <p>
  * There are certain year where there is not 365 days per year, verify these year with other calendar.
+ * </p>
  */
 public class Lookup {
+
+
+    /**
+     * Bikram Sambat new year equivalent Gregorian date
+     */
+    static ArrayList<String[]> lookup = new ArrayList<>();
+
     /*
      * lookup table starting year
      */
     static int lookupNepaliYearStart = 1970;
-    /**
-     * Bikram Sambat new year equivalent Gregorian date
-     */
-    static ArrayList<String[]> lookup = new ArrayList<String[]>();
     /*
      * number of days in each month for subsequent years we need to extend this
      * year adding more entries
      */
-    static ArrayList<Integer[]> monthDays = new ArrayList<Integer[]>();
+    static ArrayList<Integer[]> monthDays = new ArrayList<>();
 
     static {
-        //todo create some csv or sort sort of external colaborative data other can update
+        //todo create some csv or sort sort of external collaborative data others can update who does not know java
         lookup.add(new String[]{"13-Apr-1913"});// 1970 Baisakh 1
         lookup.add(new String[]{"13-Apr-1914"});
         lookup.add(new String[]{"13-Apr-1915"});
@@ -166,6 +170,9 @@ public class Lookup {
         lookup.add(new String[]{"14-Apr-2041"});// 2098
         lookup.add(new String[]{"14-Apr-2042"});// 2099
         lookup.add(new String[]{"14-Apr-2043"});// 2100
+    }
+
+    private Lookup() {
     }
 
     static {

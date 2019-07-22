@@ -9,6 +9,4 @@ public class DateRangeNotSupported extends RuntimeException {
         super(message);
     }
 
-    public DateRangeNotSupported() {
-    }
 }

@@ -12,17 +12,16 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  */
-public class DateConverterTest {
+class DateConverterTest {
     private static Logger logger = LoggerFactory.getLogger(DateConverterTest.class);
     private DateConverter dc;
 
-    public DateConverterTest() {
+    DateConverterTest() {
         dc = new DateConverter();
     }
 
     @Test
-    public void testBsToAd() {
-
+    void testBsToAd() {
         Calendar c = Calendar.getInstance();
         c.clear();
         c.set(1982, Calendar.JUNE, 20); // 1982 june 20 -- 05 is june as 0 is january
@@ -37,7 +36,7 @@ public class DateConverterTest {
     }
 
     @Test
-    public void testAdToBs() throws ParseException {
+    void testAdToBs() throws ParseException {
         assertEquals("2039-3-6", dc.convertAdToBs("20-06-1982"));
 
         assertEquals("2074-11-11", dc.convertAdToBs("23-02-2018"));
@@ -47,17 +46,17 @@ public class DateConverterTest {
 
 
     @Test
-    public void incorrectDateFormat() {
+    void incorrectDateFormat() {
         assertThrows(InvalidDateFormat.class, () -> dc.convertBsToAd("290320104"));
     }
 
     @Test
-    public void testDateNotSupported() {
+    void testDateNotSupported() {
         assertThrows(DateRangeNotSupported.class, () -> dc.convertBsToAd("29031000"));
     }
 
     @Test
-    public void testDateRangeNotSupported() {
+    void testDateRangeNotSupported() {
         assertThrows(DateRangeNotSupported.class, () -> dc.convertBsToAd("29032200"));
     }
 
@@ -66,7 +65,7 @@ public class DateConverterTest {
      * Some nepalese calendar year has 364 -367 days.
      */
     @Test
-    public void testValidNumberOfDaysInYear() {
+    void testValidNumberOfDaysInYear() {
         int index = 0;
         for (Integer[] days : Lookup.monthDays) {
             logger.debug("index {}", index++);
@@ -84,7 +83,7 @@ public class DateConverterTest {
      * test there is no bug  https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/issues/9
      */
     @Test
-    public void testAdToBsBug() throws ParseException {
+    void testAdToBsBug() throws ParseException {
         // २०३८ कार्तिक १ - 1981 October 17
         assertEquals("2038-7-1", dc.convertAdToBs("17-10-1981"));
     }

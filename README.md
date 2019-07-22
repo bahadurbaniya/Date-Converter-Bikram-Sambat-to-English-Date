@@ -1,6 +1,11 @@
-# Overview
-Converts Nepali Date (Bikram Sambat (BS)) provided to English equivalent date (AD).
+# Build Tracker 
 
+
+![Travis-ci Build Status](https://travis-ci.org/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date.svg?branch=master)
+
+# Overview
+
+Converts Nepali Date (Bikram Sambat (BS)) provided to English equivalent date(AD)/Gregorian Date.
 
 Nepali Calendar does not have constant month days as English date has. It keeps on changing we can not create any algorithm and find what will be days for certain Nepali year and month. I hope some Panchang maker might come with infinite calendar years for Nepali Calendar. For now, we have to use lookup table when converting Nepali date to English date.
 
@@ -25,7 +30,25 @@ About Bikram Sambat:
 # Technical 
 This is Maven project. Import project in your favourite IDE using pom.xml. 
 
-# Use 
+
+# Run instructions 
+  
+    
+Run only tests 
+    
+    mvn test 
+     
+
+Run main class `np.com.bahadur.converter.date.nepali.DateConverterTestBed.main` with command below 
+   
+    mvn exec:java
+    
+# Usage instructions 
+    mvn clean install 
+ 
+Use installed jar in maven .m2 folder as a dependency  
+
+Write following code in project that wants to use jar created by this repo. 
 ## AD to BS conversion sample
         DateConverter dc = new DateConverter();
         System.out.println(dc.convertAdToBs("20-06-1982"));
@@ -33,30 +56,6 @@ This is Maven project. Import project in your favourite IDE using pom.xml.
  ## BS to AD conversion sample
         DateConverter dc = new DateConverter();
         System.out.println(dc.convertBsToAd("06-03-2038"));
-        
- ## Run Maven goal below for demo 
-        
-        mvn exec:java
 
 
-# Run instructions 
-    
-Generate JAR
-    
-    mvn clean package  
-    
-Run only test 
-    
-    mvn test 
-     
-Execute class 
-    
-    java -jar target/NepaliDateConverter-1.0-SNAPSHOT.jar 
-or 
-   
-    mvn exec:java
-    
-# Usage instructions 
-    mvn clean install 
- 
-Use installed jar in .m2 folder as  a dependency  
+

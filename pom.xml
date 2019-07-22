@@ -10,12 +10,13 @@
 
     <groupId>np.com.bahadur.converter.date.nepali</groupId>
     <artifactId>NepaliEnglishDateConverter</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1</version>
 
 
     <scm>
-        <connection>scm:git:git://github.com/simpligility/ossrh-demo.git</connection>
-        <developerConnection>scm:git:ssh://github.com:simpligility/ossrh-demo.git</developerConnection>
+        <connection>git@github.com:bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date.git</connection>
+        <developerConnection>scm:git:ssh://github.com:bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date.git
+        </developerConnection>
         <url>https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/tree/master</url>
     </scm>
 
@@ -83,7 +84,46 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <properties>

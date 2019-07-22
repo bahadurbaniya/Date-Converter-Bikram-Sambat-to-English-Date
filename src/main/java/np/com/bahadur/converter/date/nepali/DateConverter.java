@@ -23,8 +23,14 @@ import java.util.regex.Pattern;
 public class DateConverter {
     static final String DEFAULT_FORMAT = "ddMMyyyy";
     private static Logger logger = LoggerFactory.getLogger(DateConverter.class);
+    /**
+     * date input format for conversion
+     */
     private String format;
-    private String separator;
+    /**
+     * separate character to separate day of month, month, and year
+     */
+    private char separator;
 
     public DateConverter() {
         this(DEFAULT_FORMAT);
@@ -34,18 +40,17 @@ public class DateConverter {
      * @param format date format
      */
     private DateConverter(String format) {
-        this(format, null);
+        this(format, Character.MIN_VALUE);
     }
 
-    private DateConverter(String format, String separator) {
-        if (format.equals(DEFAULT_FORMAT)) {
-            this.format = format;
-        } else {
+    private DateConverter(String format, char separator) {
+        this.format = format;
+        this.separator = separator;
+        if (!format.equals(DEFAULT_FORMAT)) {
             throw new InvalidDateFormat(
                     "Nepali date to Gregorian Date converter only supports "
                             + DEFAULT_FORMAT);
         }
-
     }
 
     /**
@@ -59,7 +64,7 @@ public class DateConverter {
         int bsMonth;
         int bsDayOfMonth;
 
-        if (separator == null) {
+        if (separator == Character.MIN_VALUE) {
             if (!matchFormat(bsDate)) {
                 throw new InvalidDateFormat("incorrect date format  " + format
                         + " date provided was " + bsDate);
@@ -68,7 +73,7 @@ public class DateConverter {
             bsMonth = Integer.parseInt(bsDate.substring(2, 4));
             bsYear = Integer.parseInt(bsDate.substring(4));
         } else {
-            String[] bsDates = bsDate.split(separator);
+            String[] bsDates = bsDate.split(String.valueOf(separator));
             bsYear = Integer.parseInt(bsDates[0]);
             bsMonth = Integer.parseInt(bsDates[1]);
             bsDayOfMonth = Integer.parseInt(bsDates[2]);

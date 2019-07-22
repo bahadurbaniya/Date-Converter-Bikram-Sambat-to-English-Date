@@ -44,7 +44,7 @@ public class DateConverterTestBed {
 
         /// BS to AD conversion manual prompt
         while (true) {
-            logger.info(String.format("Provide Bikram Sambat Input Date (%s) ? ", DateConverter.DEFAULT_FORMAT));
+            logger.info("Provide Bikram Sambat Input Date {}?", DateConverter.DEFAULT_FORMAT);
             Scanner s;
             Date ad;
             s = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class DateConverterTestBed {
             } catch (Exception e) {
                 logger.error("error occurred", e);
             }
-            System.out.print("Do you want to retry?  Y/N : ");
+            System.out.print("Do you want to retry?  Y/N: ");
             String retry = s.next();
             if (!retry.equalsIgnoreCase("Y")) {
                 break;
