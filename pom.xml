@@ -20,6 +20,14 @@
         <url>https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/tree/master</url>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date</url>
+        </repository>
+    </distributionManagement>
+
     <developers>
         <developer>
             <name>Baha Baniya</name>
