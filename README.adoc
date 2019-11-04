@@ -63,7 +63,6 @@ mvn clean install
 
 3.
 Use installed jar in maven .m2 folder as a dependency, adding dependency below
-
 ----
    <depdendency>
     <groupId>np.com.bahadur.converter.date.nepali</groupId>
@@ -72,7 +71,7 @@ Use installed jar in maven .m2 folder as a dependency, adding dependency below
    </depdendency>
 ----
 
-3. Now code could be used as shown below on <<Sample Code to use library>>
+4. Now code could be used as shown below on <<Sample Code to use library>>
 
 === Jar from GitHub package registry
 
