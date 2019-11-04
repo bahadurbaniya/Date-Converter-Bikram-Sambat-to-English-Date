@@ -47,7 +47,7 @@ class DateConverterTest {
 
     @Test
     void incorrectDateFormat() {
-        assertThrows(InvalidDateFormat.class, () -> dc.convertBsToAd("290320104"));
+        assertThrows(InvalidDateFormatException.class, () -> dc.convertBsToAd("290320104"));
     }
 
     @Test

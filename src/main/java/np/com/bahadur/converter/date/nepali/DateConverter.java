@@ -47,7 +47,7 @@ public class DateConverter {
         this.format = format;
         this.separator = separator;
         if (!format.equals(DEFAULT_FORMAT)) {
-            throw new InvalidDateFormat(
+            throw new InvalidDateFormatException(
                     "Nepali date to Gregorian Date converter only supports "
                             + DEFAULT_FORMAT);
         }
@@ -66,7 +66,7 @@ public class DateConverter {
 
         if (separator == Character.MIN_VALUE) {
             if (!matchFormat(bsDate)) {
-                throw new InvalidDateFormat("incorrect date format  " + format
+                throw new InvalidDateFormatException("incorrect date format  " + format
                         + " date provided was " + bsDate);
             }
             bsDayOfMonth = Integer.parseInt(bsDate.substring(0, 2));
