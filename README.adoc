@@ -1,3 +1,5 @@
+= README
+
 == Build Tracker
 
 image:https://travis-ci.org/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date.svg?branch=master[Travis-ci Build Status]
@@ -23,11 +25,12 @@ To know all the number of days in each month Following URLs can be helpful.
 * http://www.ashesh.com.np/nepali-calendar
 
 Steps involved in BS to AD conversion:
+
 1. If we need to convert 2001 Ashar 6, find number of days elapsed since start of Bikram Sambat year(2001 Baisakh 1).
-1. Ashar is 3rd month(Baisakh, Jestha, Ashar) of BS as depicted in table.
+2. Ashar is 3rd month(Baisakh, Jestha, Ashar) of BS as depicted in table.
 So number of days passed is 31+31+6-1 = 67(number of days in Baisakh+number of days in Jestha+month_of_day-1).
 Where month_of_day is day of month which needs conversion. 1 is subtracted as Baisakh 1 has already included.
-2. Add number of days elapsed to Gregorian equivalent date (13 April 1944) eg (13 April 1944)+67=19 June 1944. Which is correctly converted Gregorian date of 2001 Ashar 6.
+3. Add number of days elapsed to Gregorian equivalent date (13 April 1944) eg (13 April 1944)+67=19 June 1944. Which is correctly converted Gregorian date of 2001 Ashar 6.
 
 About Bikram Sambat:
 * https://en.wikipedia.org/wiki/Bikram_Sambat
@@ -56,36 +59,34 @@ mvn exec:java
 === Manual Installation
 
 1. Clone https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/
-2. Run command below to install jar locally in maven repository
-----
-mvn clean install 
-----
+2. Run command below to install jar locally in maven repository  `mvn clean install`
 
-3.
-Use installed jar in maven .m2 folder as a dependency, adding dependency below
-----
-   <depdendency>
-    <groupId>np.com.bahadur.converter.date.nepali</groupId>
-    <artifactId>NepaliEnglishDateConverter</artifactId>
-    <version>0.0.1</version>
-   </depdendency>
-----
+[start=3]
+. Now code could be used as shown below on <<Sample Code to use library>>
 
-4. Now code could be used as shown below on <<Sample Code to use library>>
+=== Use JAR deployed in GitHub Packages
 
-=== Jar from GitHub package registry
-
-1. jar is also hosted on https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/packages/
+1. JAR is also hosted on https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/packages/
 Follow instructions from
-https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry#authenticating-to-github-package-registry
-and https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry#installing-a-package
-to use GitHub Package Registry
-2. After following step 1, jar should be in "%USERPROFILE%\.m2\repository\np\com\bahadur\converter\date\nepali\NepaliEnglishDateConverter\0.0.1\NepaliEnglishDateConverter-0.0.1.jar" (Windows) "~\.m2\repository\np\com\bahadur\converter\date\nepali\NepaliEnglishDateConverter\0.0.1\NepaliEnglishDateConverter-0.0.1.jar" (Linux)
+https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry#authenticating-to-github-package-registry[here]
+and https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry#installing-a-package[here]
+to use GitHub Packages
+2. After following step 1, JAR should be in "%USERPROFILE%\.m2\repository\np\com\bahadur\converter\date\nepali\NepaliEnglishDateConverter\0.0.1\NepaliEnglishDateConverter-0.0.1.jar" (Windows) "~\.m2\repository\np\com\bahadur\converter\date\nepali\NepaliEnglishDateConverter\0.0.1\NepaliEnglishDateConverter-0.0.1.jar" (Linux)
 3. Now code could be used as shown below on <<Sample Code to use library>>
 
 == Sample Code to use library
 
 Write following code in project that wants to use jar imported/generated
+
+. Use installed JAR in maven .m2 folder as a dependency, adding dependency below
+
+----
+   <dependency>
+    <groupId>np.com.bahadur.converter.date.nepali</groupId>
+    <artifactId>NepaliEnglishDateConverter</artifactId>
+    <version>0.0.1</version>
+   </dependency>
+----
 
 === AD to BS conversion sample
 

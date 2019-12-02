@@ -1,0 +1,17 @@
+== Adding new feature
+
+* please add corresponding tests (TestNG tests) for new feature
+* Little bit of javadoc
+
+== Raising Bug
+
+* Fork project and write unit tests to prove bug is there
+
+or
+
+Raise bug with following info
+
+* Title: it should be short and explicit, most of the time is a summary of Actual Result
+* Steps to reproduce: a list with numbers or bullet points with the exact actions needed to be executed in order to catch the bug
+* Actual result: describe exactly what is happening after doing the steps
+* Expected result: explain what it should happen after doing the steps
