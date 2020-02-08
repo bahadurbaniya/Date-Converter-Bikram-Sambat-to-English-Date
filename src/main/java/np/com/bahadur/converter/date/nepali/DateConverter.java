@@ -8,17 +8,16 @@ package np.com.bahadur.converter.date.nepali;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
  * Class has functionality to convert bikram sambat to Gregorian(AD) date
- *
- * @author bahadur baniya
  */
 public class DateConverter {
     static final String DEFAULT_FORMAT = "ddMMyyyy";
@@ -54,7 +53,7 @@ public class DateConverter {
     }
 
     /**
-     * converts nepali Bikram Sambat date to Gregorian date
+     * Converts Nepali Bikram Sambat date to Gregorian date
      *
      * @param bsDate nepali date
      * @return english date
@@ -79,9 +78,9 @@ public class DateConverter {
             bsDayOfMonth = Integer.parseInt(bsDates[2]);
         }
 
-        int lookupIndex = getLookupIndex(bsYear);
+
         if (validateBsDate(bsYear, bsMonth, bsDayOfMonth)) {
-            return convertBsToAd(bsMonth, bsDayOfMonth, lookupIndex);
+            return convertBsToAd(bsMonth, bsDayOfMonth, bsYear);
         } else {
             throw new IllegalStateException("invalid BS date");
         }
@@ -91,38 +90,46 @@ public class DateConverter {
     /**
      * Converts Gregorian date to Bikram Sambat date
      *
-     * @param adDate english date format string
-     * @return Bikram Sambat date - String type dd-MM-yyyy. There would be 1 digit month and day of month.
+     * @param adDate english date format string "dd-MM-yyyy"
+     * @return Bikram Sambat date - String type yyyy-MM-dd. There would be 1 digit month and day of month.
      */
     String convertAdToBs(String adDate) throws ParseException {
-        String[] getCurrentYear = adDate.split("-");
+        String[] adDateParts = adDate.split("-");
 
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        Date current = df.parse(adDate);
-        Date start = null;
-        long equBs = Lookup.lookupNepaliYearStart;
-        Integer[] monthDay = null;
-        for (int i = 0; i < Lookup.lookup.size(); i++) {
-            String[] getStartYear = Lookup.lookup.get(i)[0].split("-");
-            if (getStartYear[2].equals(getCurrentYear[2])) {
-                DateFormat df1 = new SimpleDateFormat("dd-MMM-yyyy");
-                start = df1.parse(Lookup.lookup.get(i)[0]);
-                monthDay = Lookup.monthDays.get(i);
-                equBs += i;
-                if (start.getTime() >= current.getTime()) {
-                    start = df1.parse(Lookup.lookup.get(i - 1)[0]);
-                    equBs -= 1;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate inputAdDate = LocalDate.parse(adDate, formatter);
+        LocalDate lookupNearestAdDate = null;
+        int equivalentNepaliYear = Lookup.lookupNepaliYearStart;
+        Byte[] monthDay = null;
+
+        // todo use +57 years addition logic to make calculation faster
+        for (int i = 0; i < Lookup.adEquivalentDatesForNewNepaliYear.size(); i++) {
+            String[] adEquivalentDateForNewNepaliYear = Lookup.adEquivalentDatesForNewNepaliYear.get(i).split("-");
+            if (adEquivalentDateForNewNepaliYear[2].equals(adDateParts[2])) {
+                DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+                lookupNearestAdDate = LocalDate.parse(Lookup.adEquivalentDatesForNewNepaliYear.get(i), formatter1);
+                monthDay = Lookup.numberOfDaysInNepaliMonth.get(i + Lookup.lookupNepaliYearStart);
+                equivalentNepaliYear += i;
+                if (inputAdDate.isBefore(lookupNearestAdDate)) {
+                    if (i == 0) {
+                        throw new DateRangeNotSupported("Date supplied before supported date.");
+                    }
+                    lookupNearestAdDate = LocalDate.parse(Lookup.adEquivalentDatesForNewNepaliYear.get(i - 1), formatter1);
+                    equivalentNepaliYear -= 1;
+                    monthDay = Lookup.numberOfDaysInNepaliMonth.get(i + Lookup.lookupNepaliYearStart - 1);
                 }
             }
         }
-        long diff = current.getTime() - start.getTime();
-        long difference = diff / (1000 * 60 * 60 * 24);
-        int nepYear = (int) equBs;
+        assert lookupNearestAdDate != null;
+        //Positive day difference
+        long difference = ChronoUnit.DAYS.between(lookupNearestAdDate, inputAdDate);
+
         int nepMonth = 0;
         int nepDay = 1;
         int daysInMonth;
         while (difference != 0) {
             if (difference >= 0) {
+                //number of days in  Nepali months
                 daysInMonth = monthDay[nepMonth];
                 nepDay++;
                 if (nepDay > daysInMonth) {
@@ -130,36 +137,35 @@ public class DateConverter {
                     nepDay = 1;
                 }
                 if (nepMonth >= 12) {
-                    nepYear++;
+                    equivalentNepaliYear++;
                     nepMonth = 0;
                 }
                 difference--;
             }
         }
-
+//month index is initialised as 0 so increasing by 1
         nepMonth += 1;
-        return nepYear + "-" + nepMonth + "-" + nepDay;
-
+        return equivalentNepaliYear + "-" + nepMonth + "-" + nepDay;
     }
 
     /**
-     * converts nepali bikram sambat date to Gregorian date
+     * Converts nepali bikram sambat date to Gregorian date
      *
-     * @param bsMonth      nepali date month
-     * @param bsDayOfMonth nepali date day of month
-     * @param lookupIndex  index to look number of days in month
+     * @param nepaliMonth      nepali date month
+     * @param nepaliDayOfMonth nepali date day of month
+     * @param nepaliYear       index to look number of days in month
      * @return english date
      */
-    private Date convertBsToAd(int bsMonth, int bsDayOfMonth,
-                               int lookupIndex) {
+    private Date convertBsToAd(int nepaliMonth, int nepaliDayOfMonth,
+                               int nepaliYear) {
         // number of days
         // passed
         // since
         // start of year
         // 1 is decreased as year start day has already included
-        int numberOfDaysPassed = bsDayOfMonth - 1;
-        for (int i = 0; i <= bsMonth - 2; i++) {
-            numberOfDaysPassed += Lookup.monthDays.get(lookupIndex)[i];
+        int numberOfDaysPassed = nepaliDayOfMonth - 1;
+        for (int i = 0; i <= nepaliMonth - 2; i++) {
+            numberOfDaysPassed += Lookup.numberOfDaysInNepaliMonth.get(nepaliYear)[i];
         }
         // From look up table we need to find corresponding english date
         // for
@@ -176,7 +182,7 @@ public class DateConverter {
         sdf.setLenient(false);
         Calendar c1 = Calendar.getInstance();
         try {
-            c1.setTime(sdf.parse(Lookup.lookup.get(lookupIndex)[0]));
+            c1.setTime(sdf.parse(Lookup.adEquivalentDatesForNewNepaliYear.get(getLookupIndex(nepaliYear))));
         } catch (ParseException e) {
             logger.error("error", e);
         }
@@ -195,13 +201,13 @@ public class DateConverter {
     private boolean validateBsDate(int bsYear, int bsMonth, int bsDayOfMonth) {
         if (bsYear < Lookup.lookupNepaliYearStart) {
             throw new DateRangeNotSupported("Bikam Sambat is earlier than supported date");
-        } else if (bsYear > (Lookup.lookupNepaliYearStart + Lookup.monthDays.size() - 1)) {
+        } else if (bsYear > (Lookup.lookupNepaliYearStart + Lookup.numberOfDaysInNepaliMonth.size() - 1)) {
             throw new DateRangeNotSupported("Bikram Sambat is later than supported date");
         } else {
             logger.debug("debug: converter supports  year {} ", bsYear);
             if (bsMonth >= 1 && bsMonth <= 12) {
                 logger.debug("debug: month between 1 and 12");
-                int dayOfMonth = Lookup.monthDays.get(getLookupIndex(bsYear))[bsMonth - 1];
+                int dayOfMonth = Lookup.numberOfDaysInNepaliMonth.get(bsYear)[bsMonth - 1];
                 logger.debug("debug:total days in month {} ", dayOfMonth);
                 if (bsDayOfMonth <= dayOfMonth) {
                     return true;

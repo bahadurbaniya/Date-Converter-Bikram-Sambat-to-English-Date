@@ -20,7 +20,7 @@ public class DateConverterTestBed {
         logger.info("*******************************************************************************************");
         logger.info("BS to AD Converter supports {} - {} "
                 , Lookup.lookupNepaliYearStart,
-                (Lookup.lookupNepaliYearStart + Lookup.monthDays.size() - 1));
+                (Lookup.lookupNepaliYearStart + Lookup.numberOfDaysInNepaliMonth.size() - 1));
         logger.info("Further Nepali years can be added looking up online calendar. Add lookup in Lookup.java.");
         logger.info("One English equivalent date and ");
         logger.info("number of days in each Nepali month for each Nepali Year is needed as a lookup.");

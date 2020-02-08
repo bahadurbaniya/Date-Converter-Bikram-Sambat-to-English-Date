@@ -9,8 +9,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>np.com.bahadur.converter.date.nepali</groupId>
-    <artifactId>NepaliEnglishDateConverter</artifactId>
-    <version>0.0.1</version>
+    <artifactId>nepali-english-date-converter</artifactId>
+    <version>1.0.0</version>
 
 
     <scm>

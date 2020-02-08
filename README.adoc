@@ -35,6 +35,50 @@ Where month_of_day is day of month which needs conversion. 1 is subtracted as Ba
 About Bikram Sambat:
 * https://en.wikipedia.org/wiki/Bikram_Sambat
 
+== Questions
+
+=== Why Nepali year does not have 365 days in years listed below?
+
+ Why Nepali year 1974 has total days 364 instead of 365 days
+ Why Nepali year 1976 has total days 366 instead of 365 days
+ Why Nepali year 1984 has total days 366 instead of 365 days
+ Why Nepali year 1988 has total days 366 instead of 365 days
+ Why Nepali year 1990 has total days 364 instead of 365 days
+ Why Nepali year 2003 has total days 366 instead of 365 days
+ Why Nepali year 2007 has total days 366 instead of 365 days
+ Why Nepali year 2011 has total days 366 instead of 365 days
+ Why Nepali year 2015 has total days 366 instead of 365 days
+ Why Nepali year 2019 has total days 366 instead of 365 days
+ Why Nepali year 2023 has total days 366 instead of 365 days
+ Why Nepali year 2026 has total days 366 instead of 365 days
+ Why Nepali year 2030 has total days 366 instead of 365 days
+ Why Nepali year 2034 has total days 366 instead of 365 days
+ Why Nepali year 2038 has total days 366 instead of 365 days
+ Why Nepali year 2042 has total days 366 instead of 365 days
+ Why Nepali year 2046 has total days 366 instead of 365 days
+ Why Nepali year 2050 has total days 366 instead of 365 days
+ Why Nepali year 2054 has total days 366 instead of 365 days
+ Why Nepali year 2057 has total days 366 instead of 365 days
+ Why Nepali year 2061 has total days 366 instead of 365 days
+ Why Nepali year 2065 has total days 366 instead of 365 days
+ Why Nepali year 2069 has total days 366 instead of 365 days
+ Why Nepali year 2073 has total days 366 instead of 365 days
+ Why Nepali year 2077 has total days 366 instead of 365 days
+ Why Nepali year 2081 has total days 366 instead of 365 days
+ Why Nepali year 2082 has total days 366 instead of 365 days
+ Why Nepali year 2085 has total days 367 instead of 365 days
+ Why Nepali year 2086 has total days 366 instead of 365 days
+ Why Nepali year 2087 has total days 366 instead of 365 days
+ Why Nepali year 2089 has total days 366 instead of 365 days
+ Why Nepali year 2090 has total days 366 instead of 365 days
+ Why Nepali year 2091 has total days 366 instead of 365 days
+ Why Nepali year 2092 has total days 366 instead of 365 days
+ Why Nepali year 2093 has total days 366 instead of 365 days
+ Why Nepali year 2095 has total days 366 instead of 365 days
+ Why Nepali year 2096 has total days 364 instead of 365 days
+ Why Nepali year 2097 has total days 366 instead of 365 days
+ Why Nepali year 2098 has total days 366 instead of 365 days
+
 == Technical
 
 This is Maven project.
@@ -55,6 +99,8 @@ mvn exec:java
 ----
 
 == Usage instructions
+
+1. >= JDK 1.8
 
 === Manual Installation
 
