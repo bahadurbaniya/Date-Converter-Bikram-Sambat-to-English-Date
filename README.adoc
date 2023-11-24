@@ -8,10 +8,7 @@ image:https://travis-ci.org/bahadurbaniya/Date-Converter-Bikram-Sambat-to-Englis
 
 Converts Nepali Date (Bikram Sambat (BS)) provided to English equivalent date(AD)/Gregorian Date.
 
-Nepali Calendar does not have constant month days as English date has.
-It keeps on changing we can not create any algorithm and find what will be days for certain Nepali year and month.
-I hope some Panchang maker might come with infinite calendar years for Nepali Calendar.
-For now, we have to use lookup table when converting Nepali date to English date.
+Nepali calendar does not have constant month lengths like the English calendar. The number of days in a month keeps changing, so we cannot create an algorithm to find the number of days in a particular Nepali month and year. I hope that a Nepali Calendar maker can  create an infinite calendar for the Nepali calendar. For now, we have to use a lookup table when converting Nepali dates to English dates. 
 
 We have to find mapping of first day of Bikram Sambat (BS)'s year to equivalent Gregorian date.
 Do this for every Nepali year you want to convert e.g. 2001 Baisakh 1 "13-Apr-1944" ……… ….
@@ -39,45 +36,45 @@ About Bikram Sambat:
 
 === Why Nepali year does not have 365 days in years listed below?
 
- Why Nepali year 1974 has total days 364 instead of 365 days
- Why Nepali year 1976 has total days 366 instead of 365 days
- Why Nepali year 1984 has total days 366 instead of 365 days
- Why Nepali year 1988 has total days 366 instead of 365 days
- Why Nepali year 1990 has total days 364 instead of 365 days
- Why Nepali year 2003 has total days 366 instead of 365 days
- Why Nepali year 2007 has total days 366 instead of 365 days
- Why Nepali year 2011 has total days 366 instead of 365 days
- Why Nepali year 2015 has total days 366 instead of 365 days
- Why Nepali year 2019 has total days 366 instead of 365 days
- Why Nepali year 2023 has total days 366 instead of 365 days
- Why Nepali year 2026 has total days 366 instead of 365 days
- Why Nepali year 2030 has total days 366 instead of 365 days
- Why Nepali year 2034 has total days 366 instead of 365 days
- Why Nepali year 2038 has total days 366 instead of 365 days
- Why Nepali year 2042 has total days 366 instead of 365 days
- Why Nepali year 2046 has total days 366 instead of 365 days
- Why Nepali year 2050 has total days 366 instead of 365 days
- Why Nepali year 2054 has total days 366 instead of 365 days
- Why Nepali year 2057 has total days 366 instead of 365 days
- Why Nepali year 2061 has total days 366 instead of 365 days
- Why Nepali year 2065 has total days 366 instead of 365 days
- Why Nepali year 2069 has total days 366 instead of 365 days
- Why Nepali year 2073 has total days 366 instead of 365 days
- Why Nepali year 2077 has total days 366 instead of 365 days
- Why Nepali year 2081 has total days 366 instead of 365 days
- Why Nepali year 2082 has total days 366 instead of 365 days
- Why Nepali year 2085 has total days 367 instead of 365 days
- Why Nepali year 2086 has total days 366 instead of 365 days
- Why Nepali year 2087 has total days 366 instead of 365 days
- Why Nepali year 2089 has total days 366 instead of 365 days
- Why Nepali year 2090 has total days 366 instead of 365 days
- Why Nepali year 2091 has total days 366 instead of 365 days
- Why Nepali year 2092 has total days 366 instead of 365 days
- Why Nepali year 2093 has total days 366 instead of 365 days
- Why Nepali year 2095 has total days 366 instead of 365 days
- Why Nepali year 2096 has total days 364 instead of 365 days
- Why Nepali year 2097 has total days 366 instead of 365 days
- Why Nepali year 2098 has total days 366 instead of 365 days
+ Why Nepali year 1974 has total days 364 instead of 365 days?
+ Why Nepali year 1976 has total days 366 instead of 365 days?
+ Why Nepali year 1984 has total days 366 instead of 365 days?
+ Why Nepali year 1988 has total days 366 instead of 365 days?
+ Why Nepali year 1990 has total days 364 instead of 365 days?
+ Why Nepali year 2003 has total days 366 instead of 365 days?
+ Why Nepali year 2007 has total days 366 instead of 365 days?
+ Why Nepali year 2011 has total days 366 instead of 365 days?
+ Why Nepali year 2015 has total days 366 instead of 365 days?
+ Why Nepali year 2019 has total days 366 instead of 365 days?
+ Why Nepali year 2023 has total days 366 instead of 365 days?
+ Why Nepali year 2026 has total days 366 instead of 365 days?
+ Why Nepali year 2030 has total days 366 instead of 365 days?
+ Why Nepali year 2034 has total days 366 instead of 365 days?
+ Why Nepali year 2038 has total days 366 instead of 365 days?
+ Why Nepali year 2042 has total days 366 instead of 365 days?
+ Why Nepali year 2046 has total days 366 instead of 365 days?
+ Why Nepali year 2050 has total days 366 instead of 365 days?
+ Why Nepali year 2054 has total days 366 instead of 365 days?
+ Why Nepali year 2057 has total days 366 instead of 365 days?
+ Why Nepali year 2061 has total days 366 instead of 365 days?
+ Why Nepali year 2065 has total days 366 instead of 365 days?
+ Why Nepali year 2069 has total days 366 instead of 365 days?
+ Why Nepali year 2073 has total days 366 instead of 365 days?
+ Why Nepali year 2077 has total days 366 instead of 365 days?
+ Why Nepali year 2081 has total days 366 instead of 365 days?
+ Why Nepali year 2082 has total days 366 instead of 365 days?
+ Why Nepali year 2085 has total days 367 instead of 365 days?
+ Why Nepali year 2086 has total days 366 instead of 365 days?
+ Why Nepali year 2087 has total days 366 instead of 365 days?
+ Why Nepali year 2089 has total days 366 instead of 365 days?
+ Why Nepali year 2090 has total days 366 instead of 365 days?
+ Why Nepali year 2091 has total days 366 instead of 365 days?
+ Why Nepali year 2092 has total days 366 instead of 365 days?
+ Why Nepali year 2093 has total days 366 instead of 365 days?
+ Why Nepali year 2095 has total days 366 instead of 365 days?
+ Why Nepali year 2096 has total days 364 instead of 365 days?
+ Why Nepali year 2097 has total days 366 instead of 365 days?
+ Why Nepali year 2098 has total days 366 instead of 365 days? 
 
 == Technical
 
