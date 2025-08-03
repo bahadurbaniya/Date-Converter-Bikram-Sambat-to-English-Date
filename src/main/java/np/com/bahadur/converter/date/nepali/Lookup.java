@@ -402,7 +402,7 @@ public class Lookup {
         numberOfDaysInNepaliMonth.put(2080, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 30});// 2080
         numberOfDaysInNepaliMonth.put(2081, new Byte[]{31, 31, 32, 32, 31, 30, 30, 30, 29, 30,
-                30, 30});// 2081
+                30, 31});// 2081
         numberOfDaysInNepaliMonth.put(2082, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2082
         numberOfDaysInNepaliMonth.put(2083, new Byte[]{31, 31, 32, 31, 31, 30, 30, 30, 29, 30,
