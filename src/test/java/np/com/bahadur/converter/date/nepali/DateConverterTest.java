@@ -34,6 +34,7 @@ class DateConverterTest {
 
         c.set(2011, Calendar.JULY, 13);
         assertEquals(c.getTime(), dc.convertBsToAd("29032068"));
+
     }
 
     @Test
@@ -43,11 +44,15 @@ class DateConverterTest {
 
         assertEquals("2041-1-28", dc.convertAdToBs("10-05-1984"));
 
-
+      
         //  २०६३ फागुन ७ 19 February , 2007
         assertEquals("2063-11-7", dc.convertAdToBs("19-02-2007"));
 
         assertEquals("2074-11-11", dc.convertAdToBs("23-02-2018"));
+        
+        // From https://nepalipatro.com.np/calendar/bs/2090  
+        assertEquals("2090-1-30", dc.convertAdToBs("13-04-2034"));
+      
     }
 
 
