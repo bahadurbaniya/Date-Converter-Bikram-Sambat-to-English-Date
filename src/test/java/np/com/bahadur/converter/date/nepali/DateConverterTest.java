@@ -39,6 +39,8 @@ class DateConverterTest {
 
     @Test
     void testAdToBs() throws ParseException {
+        //first argument nepali date, second english date 
+        
         assertEquals("2039-3-6", dc.convertAdToBs("20-06-1982"));
 
 
@@ -49,9 +51,11 @@ class DateConverterTest {
         assertEquals("2063-11-7", dc.convertAdToBs("19-02-2007"));
 
         assertEquals("2074-11-11", dc.convertAdToBs("23-02-2018"));
-        
-        // From https://nepalipatro.com.np/calendar/bs/2090  
-        assertEquals("2090-1-30", dc.convertAdToBs("13-04-2034"));
+
+        // https://nepalipatro.com.np/calendar/bs/2083-04-19
+         assertEquals("2083-4-19", dc.convertAdToBs("04-08-2026")); 
+        //  From https://nepalipatro.com.np/calendar/bs/2090-01-30  
+        assertEquals("2090-1-30", dc.convertAdToBs("13-05-2033"));
       
     }
 
