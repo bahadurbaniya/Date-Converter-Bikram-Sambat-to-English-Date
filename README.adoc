@@ -2,7 +2,7 @@
 
 == Build Tracker
 
-image:https://travis-ci.org/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date.svg?branch=master[Travis-ci Build Status]
+[![Java CI](https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/actions/workflows/maven.yml/badge.svg)](https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/actions/workflows/maven.yml)
 
 == Overview
 

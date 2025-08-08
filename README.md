@@ -100,7 +100,10 @@ $ mvn exec:java
 
 ### Use JAR deployed in GitHub Packages
 
-1. AR is also hosted on https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/packages/ Follow instructions from here and here to use GitHub Packages.
+1. JAR is also hosted on https://github.com/bahadurbaniya/Date-Converter-Bikram-Sambat-to-English-Date/packages/ Follow instructions from  from
+https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry#authenticating-to-github-package-registry[here]
+and https://help.github.com/en/github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry#installing-a-package[here]
+to use GitHub Packages.
 2. After following step 1, JAR should be in "%USERPROFILE%\.m2\repository\np\com\bahadur\converter\date\nepali\NepaliEnglishDateConverter\0.0.1\NepaliEnglishDateConverter-0.0.1.jar" (Windows) "~\.m2\repository\np\com\bahadur\converter\date\nepali\NepaliEnglishDateConverter\0.0.1\NepaliEnglishDateConverter-0.0.1.jar" (Linux).
 3. Now code could be used as shown below on [Sample Code to use library](#sample-code-to-use-library)
 
@@ -121,7 +124,7 @@ Write following code in project that wants to use jar imported/generated.
 ### AD to BS conversion sample
 ```bash
 DateConverter dc = new DateConverter();
-System.out.println(dc.convertAdToBs("20-06-1982"));
+System.out.println(dc.convertAdToBs("21-07-1983"));
 ```
 
 

@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Run all tests with Maven",
+			"command": "mvn",
+			"args": [
+				"test"
+			],
+			"group": "test",
+			"problemMatcher": [
+				"$javac"
+			]
+		}
+	]
+}

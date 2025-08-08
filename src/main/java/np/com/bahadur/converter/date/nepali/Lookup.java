@@ -171,7 +171,7 @@ public class Lookup {
         adEquivalentDatesForNewNepaliYear.add("13-Apr-2040");// 2097
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2041");// 2098
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2042");// 2099
-        adEquivalentDatesForNewNepaliYear.add("14-Apr-2043");// 2100
+        adEquivalentDatesForNewNepaliYear.add("14-Apr-2043");// 2100 BS 
     }
 
     private Lookup() {
@@ -440,7 +440,7 @@ public class Lookup {
         numberOfDaysInNepaliMonth.put(2099, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 29, 30,
                 30, 30});// 2099
         numberOfDaysInNepaliMonth.put(2100, new Byte[]{31, 32, 31, 32, 30, 31, 30, 29, 30, 29,
-                30, 30});// 2100
+                30, 30});// 2100 BS 
     }
 
 }

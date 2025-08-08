@@ -55,7 +55,8 @@ class DateConverterTest {
         // https://nepalipatro.com.np/calendar/bs/2083-04-19
          assertEquals("2083-4-19", dc.convertAdToBs("04-08-2026")); 
         //  From https://nepalipatro.com.np/calendar/bs/2090-01-30  
-        assertEquals("2090-1-30", dc.convertAdToBs("13-05-2033"));
+        assertEquals("2099-12-30", dc.convertAdToBs("13-04-2043"));
+         //  From https://nepalipatro.com.np/calendar/bs/2099-12-30  
       
     }
 
@@ -82,6 +83,7 @@ class DateConverterTest {
     @Test
     void testDateNotSupported() {
         assertThrows(DateRangeNotSupported.class, () -> dc.convertBsToAd("29031000"));
+        assertThrows(DateRangeNotSupported.class, () -> dc.convertBsToAd("21011000"));
     }
 
     @Test
