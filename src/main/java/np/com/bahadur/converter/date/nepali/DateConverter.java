@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
- * Class has functionality to convert bikram sambat to Gregorian(AD) date
+ * Class has functionality to convert Bikram Sambat to Gregorian(AD) date
  */
 public class DateConverter {
     static final String DEFAULT_FORMAT = "ddMMyyyy";
@@ -191,7 +191,7 @@ public class DateConverter {
     }
 
     /**
-     * validates nepali date
+     * Validates nepali date
      *
      * @param bsYear       nepali date year part
      * @param bsMonth      nepali date month part
