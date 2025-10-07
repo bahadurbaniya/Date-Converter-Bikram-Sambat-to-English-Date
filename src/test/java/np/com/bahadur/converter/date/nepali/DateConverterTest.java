@@ -1,5 +1,7 @@
 package np.com.bahadur.converter.date.nepali;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -155,5 +157,28 @@ class DateConverterTest {
 
     }
 
+
+    @Nested
+    @DisplayName("Testing for 2082BS")
+    class TestFor2082BS {
+        @Test
+        @DisplayName("English date conversion should return the specified nepali dates which are based from a physical calendar")
+        void testFor2082() throws ParseException {
+            assertEquals("2082-1-16", dc.convertAdToBs("29-04-2025"));
+            assertEquals("2082-2-16", dc.convertAdToBs("30-05-2025"));
+            assertEquals("2082-3-16", dc.convertAdToBs("30-06-2025"));
+            assertEquals("2082-4-16", dc.convertAdToBs("01-08-2025"));
+            assertEquals("2082-4-16", dc.convertAdToBs("01-08-2025"));
+            assertEquals("2082-5-16", dc.convertAdToBs("01-09-2025"));
+            assertEquals("2082-6-16", dc.convertAdToBs("02-10-2025"));
+            assertEquals("2082-7-16", dc.convertAdToBs("02-11-2025"));
+            assertEquals("2082-8-16", dc.convertAdToBs("02-12-2025"));
+            assertEquals("2082-9-16", dc.convertAdToBs("31-12-2025"));
+            assertEquals("2082-10-16", dc.convertAdToBs("30-01-2026"));
+            assertEquals("2082-11-16", dc.convertAdToBs("28-02-2026"));
+            assertEquals("2082-12-16", dc.convertAdToBs("30-03-2026"));
+        }
+
+    }
 
 }
