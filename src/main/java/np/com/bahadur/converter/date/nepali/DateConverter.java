@@ -93,7 +93,7 @@ public class DateConverter {
      * @param adDate english date format string "dd-MM-yyyy"
      * @return Bikram Sambat date - String type yyyy-MM-dd. There would be 1 digit month and day of month.
      */
-    String convertAdToBs(String adDate) throws ParseException {
+    public String convertAdToBs(String adDate) throws ParseException {
         String[] adDateParts = adDate.split("-");
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
