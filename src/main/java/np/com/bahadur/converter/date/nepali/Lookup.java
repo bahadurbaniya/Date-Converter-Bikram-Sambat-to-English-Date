@@ -46,7 +46,7 @@ public class Lookup {
         adEquivalentDatesForNewNepaliYear.add("13-Apr-1915");
         adEquivalentDatesForNewNepaliYear.add("13-Apr-1916");
         adEquivalentDatesForNewNepaliYear.add("13-Apr-1917");
-        adEquivalentDatesForNewNepaliYear.add("12-Apr-1918");
+        adEquivalentDatesForNewNepaliYear.add("13-Apr-1918");
         adEquivalentDatesForNewNepaliYear.add("13-Apr-1919");
         adEquivalentDatesForNewNepaliYear.add("13-Apr-1920");
         adEquivalentDatesForNewNepaliYear.add("13-Apr-1921");
@@ -163,7 +163,7 @@ public class Lookup {
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2032");// 2089
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2033");// 2090
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2034");// 2091
-        adEquivalentDatesForNewNepaliYear.add("13-Apr-2035");// 2092
+        adEquivalentDatesForNewNepaliYear.add("15-Apr-2035");// 2092
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2036");// 2093
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2037");// 2094
         adEquivalentDatesForNewNepaliYear.add("14-Apr-2038");// 2095
@@ -189,17 +189,17 @@ public class Lookup {
                 29, 31});// 1973
         numberOfDaysInNepaliMonth.put(1974, new Byte[]{31, 31, 32, 30, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1974
-        numberOfDaysInNepaliMonth.put(1975, new Byte[]{31, 31, 32, 32, 30, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1975, new Byte[]{31, 31, 32, 32, 31, 30, 30, 29, 30, 29,
                 30, 30});// 1975
         numberOfDaysInNepaliMonth.put(1976, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 31});// 1976
-        numberOfDaysInNepaliMonth.put(1977, new Byte[]{30, 32, 31, 32, 31, 31, 29, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(1977, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 29, 31});// 1977
         numberOfDaysInNepaliMonth.put(1978, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1978
         numberOfDaysInNepaliMonth.put(1979, new Byte[]{31, 31, 32, 32, 31, 30, 30, 29, 30, 29,
                 30, 30});// 1979
-        numberOfDaysInNepaliMonth.put(1980, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 29,
+        numberOfDaysInNepaliMonth.put(1980, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 31});// 1980
         numberOfDaysInNepaliMonth.put(1981, new Byte[]{31, 31, 31, 32, 31, 31, 29, 30, 30, 29,
                 30, 30});// 1981
@@ -217,29 +217,29 @@ public class Lookup {
                 30, 30});// 1987
         numberOfDaysInNepaliMonth.put(1988, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 31});// 1988
-        numberOfDaysInNepaliMonth.put(1989, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1989, new Byte[]{31, 31, 31, 32, 31, 31, 29, 30, 30, 29,
                 30, 30});// 1989
-        numberOfDaysInNepaliMonth.put(1990, new Byte[]{30, 31, 32, 31, 31, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1990, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1990
-        numberOfDaysInNepaliMonth.put(1991, new Byte[]{31, 32, 31, 32, 31, 30, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1991, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 30});// 1991
         numberOfDaysInNepaliMonth.put(1992, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
-                29, 30});// 1992
-        numberOfDaysInNepaliMonth.put(1993, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
+                29, 31});// 1992
+        numberOfDaysInNepaliMonth.put(1993, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1993
-        numberOfDaysInNepaliMonth.put(1994, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1994, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1994
-        numberOfDaysInNepaliMonth.put(1995, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1995, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 30});// 1995
-        numberOfDaysInNepaliMonth.put(1996, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
-                30, 30});// 1996
-        numberOfDaysInNepaliMonth.put(1997, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1996, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
+                29, 31});// 1996
+        numberOfDaysInNepaliMonth.put(1997, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1997
-        numberOfDaysInNepaliMonth.put(1998, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
+        numberOfDaysInNepaliMonth.put(1998, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 1998
-        numberOfDaysInNepaliMonth.put(1999, new Byte[]{31, 31, 31, 32, 31, 31, 30, 29, 30, 29,
-                30, 30});// 1999
-        numberOfDaysInNepaliMonth.put(2000, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
+        numberOfDaysInNepaliMonth.put(1999, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
+                30, 31});// 1999
+        numberOfDaysInNepaliMonth.put(2000, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 29, 31});// 2000
         numberOfDaysInNepaliMonth.put(2001, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 2001
@@ -363,7 +363,7 @@ public class Lookup {
                 30, 30});// 2060
         numberOfDaysInNepaliMonth.put(2061, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 31});
-        numberOfDaysInNepaliMonth.put(2062, new Byte[]{30, 32, 31, 32, 31, 31, 29, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2062, new Byte[]{31, 31, 31, 32, 31, 31, 29, 30, 29, 30,
                 29, 31});
         numberOfDaysInNepaliMonth.put(2063, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});
@@ -401,31 +401,31 @@ public class Lookup {
                 30, 30});
         numberOfDaysInNepaliMonth.put(2080, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 29,
                 30, 30});// 2080
-        numberOfDaysInNepaliMonth.put(2081, new Byte[]{31, 31, 32, 32, 31, 30, 30, 30, 29, 30,
-                30, 31});// 2081
+        numberOfDaysInNepaliMonth.put(2081, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
+                29, 31});// 2081
         numberOfDaysInNepaliMonth.put(2082, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 2082
-        numberOfDaysInNepaliMonth.put(2083, new Byte[]{31, 31, 32, 31, 31, 30, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2083, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 29,
                 30, 30});// 2083
         numberOfDaysInNepaliMonth.put(2084, new Byte[]{31, 31, 32, 31, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2084
-        numberOfDaysInNepaliMonth.put(2085, new Byte[]{31, 32, 31, 32, 31, 31, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2085, new Byte[]{31, 32, 31, 32, 30, 31, 30, 30, 29, 30,
                 30, 30});// 2085
-        numberOfDaysInNepaliMonth.put(2086, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2086, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2086
-        numberOfDaysInNepaliMonth.put(2087, new Byte[]{31, 31, 32, 31, 31, 31, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2087, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 30, 30,
                 30, 30});// 2087
         numberOfDaysInNepaliMonth.put(2088, new Byte[]{30, 31, 32, 32, 30, 31, 30, 30, 29, 30,
                 30, 30});// 2088
-        numberOfDaysInNepaliMonth.put(2089, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2089, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2089
-        numberOfDaysInNepaliMonth.put(2090, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2090, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2090
         numberOfDaysInNepaliMonth.put(2091, new Byte[]{31, 31, 32, 31, 31, 31, 30, 30, 29, 30,
                 30, 30});// 2091
-        numberOfDaysInNepaliMonth.put(2092, new Byte[]{31, 31, 32, 32, 31, 30, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2092, new Byte[]{30, 31, 32, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2092
-        numberOfDaysInNepaliMonth.put(2093, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
+        numberOfDaysInNepaliMonth.put(2093, new Byte[]{30, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2093
         numberOfDaysInNepaliMonth.put(2094, new Byte[]{31, 31, 32, 31, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2094
@@ -436,7 +436,7 @@ public class Lookup {
         numberOfDaysInNepaliMonth.put(2097, new Byte[]{31, 32, 31, 32, 31, 30, 30, 30, 29, 30,
                 30, 30});// 2097
         numberOfDaysInNepaliMonth.put(2098, new Byte[]{31, 31, 32, 31, 31, 31, 29, 30, 29, 30,
-                30, 31});// 2098
+                29, 31});// 2098
         numberOfDaysInNepaliMonth.put(2099, new Byte[]{31, 31, 32, 31, 31, 31, 30, 29, 29, 30,
                 30, 30});// 2099
         numberOfDaysInNepaliMonth.put(2100, new Byte[]{31, 32, 31, 32, 30, 31, 30, 29, 30, 29,
