@@ -39,6 +39,87 @@ class DateConverterTest {
 
     }
 
+    /**
+     * Regression test for corrupted Bikram Sambat month-length and AD-new-year
+     * anchor tables in {@link Lookup}.
+     * <p>
+     * Each case below was previously RED (off by -2/-1/+1 days) because the
+     * hardcoded {@code numberOfDaysInNepaliMonth} table had transcription
+     * errors in 26 BS years and {@code adEquivalentDatesForNewNepaliYear} had
+     * 2 wrong anchors (BS1975, BS2092). The expected AD dates are the official
+     * Nepal Calendar Committee values (as shipped by the {@code nepali_datetime}
+     * 1.0.8.5 Python package). Before the table fix these assertions failed;
+     * after the fix they must pass.
+     */
+    @Test
+    void testBsToAdOfficialCalendarRegression() {
+        Calendar c = Calendar.getInstance();
+
+        // BS 2085-06-01 -> 2028-09-16 (was 2028-09-17, +1)
+        c.clear();
+        c.set(2028, Calendar.SEPTEMBER, 16);
+        assertEquals(c.getTime(), dc.convertBsToAd("01062085"));
+
+        // BS 2092-01-01 -> 2035-04-15 (was 2035-04-13, -2; anchor-table error)
+        c.clear();
+        c.set(2035, Calendar.APRIL, 15);
+        assertEquals(c.getTime(), dc.convertBsToAd("01012092"));
+
+        // BS 1975-06-01 -> 1918-09-17 (was 1918-09-15, -2; anchor-table error)
+        c.clear();
+        c.set(1918, Calendar.SEPTEMBER, 17);
+        assertEquals(c.getTime(), dc.convertBsToAd("01061975"));
+
+        // BS 1975-05-01 -> 1918-08-17 (was 1918-08-16, -1)
+        c.clear();
+        c.set(1918, Calendar.AUGUST, 17);
+        assertEquals(c.getTime(), dc.convertBsToAd("01051975"));
+
+        // BS 2081-12-01 -> 2025-03-14 (was 2025-03-15, +1)
+        c.clear();
+        c.set(2025, Calendar.MARCH, 14);
+        assertEquals(c.getTime(), dc.convertBsToAd("01122081"));
+
+        // BS 2086-02-01 -> 2029-05-14 (was 2029-05-15, +1)
+        c.clear();
+        c.set(2029, Calendar.MAY, 14);
+        assertEquals(c.getTime(), dc.convertBsToAd("01022086"));
+
+        // BS 2089-02-01 -> 2032-05-14 (was 2032-05-15, +1)
+        c.clear();
+        c.set(2032, Calendar.MAY, 14);
+        assertEquals(c.getTime(), dc.convertBsToAd("01022089"));
+
+        // BS 2098-12-01 -> 2042-03-14 (was 2042-03-15, +1)
+        c.clear();
+        c.set(2042, Calendar.MARCH, 14);
+        assertEquals(c.getTime(), dc.convertBsToAd("01122098"));
+
+        // Reality anchors that were already correct and must stay correct.
+        // BS 2081-01-01 -> 2024-04-13 (New Year 2081 BS, 2024-04-13).
+        c.clear();
+        c.set(2024, Calendar.APRIL, 13);
+        assertEquals(c.getTime(), dc.convertBsToAd("01012081"));
+
+        // BS 2079-01-01 -> 2022-04-14.
+        c.clear();
+        c.set(2022, Calendar.APRIL, 14);
+        assertEquals(c.getTime(), dc.convertBsToAd("01012079"));
+    }
+
+    /**
+     * Reverse-direction regression: AD -> BS for the previously-RED anchors.
+     */
+    @Test
+    void testAdToBsOfficialCalendarRegression() throws ParseException {
+        // 2028-09-16 -> BS 2085-6-1
+        assertEquals("2085-6-1", dc.convertAdToBs("16-09-2028"));
+        // 2035-04-15 -> BS 2092-1-1 (anchor-table error year)
+        assertEquals("2092-1-1", dc.convertAdToBs("15-04-2035"));
+        // 1918-09-17 -> BS 1975-6-1 (anchor-table error year)
+        assertEquals("1975-6-1", dc.convertAdToBs("17-09-1918"));
+    }
+
     @Test
     void testAdToBs() throws ParseException {
         //first argument nepali date, second english date 
