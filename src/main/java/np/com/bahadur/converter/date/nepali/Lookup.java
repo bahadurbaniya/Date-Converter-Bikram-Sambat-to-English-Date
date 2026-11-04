@@ -23,9 +23,10 @@ import java.util.Map;
  */
 public class Lookup {
     /**
-     * Bikram Sambat new year equivalent Gregorian date
+     * Bikram Sambat new year equivalent Gregorian date.
      * <p>
-     * TODO map would be good format for faster calculation.
+     * TODO: map would be good format for faster calculation.
+     * </p>
      */
     static ArrayList<String> adEquivalentDatesForNewNepaliYear = new ArrayList<>();
     /*
